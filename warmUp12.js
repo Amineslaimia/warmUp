@@ -22,3 +22,41 @@ Technical Details
     -The maximum size of a range will be 100 integers
     -The starting number of a range will be: 0 < n < 100
  */
+function smallestLargest (string,range){
+    var min=0;
+    var max=0;
+    array=[];
+    result=[];
+    for(var i = 0; i <string.length;i++){
+        if (string[i]==='1'){
+            array.push(parseInt(string[i]+string[i+1]))
+           
+            i++;
+
+        }else{
+            array.push(parseInt(string[i]))
+        }
+    }
+    if(range===array.length){
+        min= array[0];
+        for (var i =0;i<array.length;i++){
+        
+            if (min>array[i]){
+                min=array[i]
+            
+            }
+        }
+        max= array[0]
+        for (var i =0;i<array.length;i++){
+            if (array[i]>=max){
+            max=array[i]
+            }
+        }
+        result.push(min);
+        result.push(max);
+        return result;
+    }else{
+        return 'string out of range enter another string '
+    }
+    
+}
