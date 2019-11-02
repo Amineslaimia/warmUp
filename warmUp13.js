@@ -15,15 +15,15 @@
             L          50
             C          100
             D          500
-            M          1,000 
-    
+            M          1,000
+
     2. Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
         Examples:
 
         toCamelCase("the-stealth-warrior") // returns "theStealthWarrior"
 
         toCamelCase("The_Stealth_Warrior") // returns "TheStealthWarrior"
-    
+
     3. In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
         Example
 
@@ -31,3 +31,75 @@
             filter_list([1,'a','b',0,15]) == [1,0,15]
             filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
 */
+// 1
+function romanToDecimal (string){
+var result=0;
+    for (var i=0;i<string.length;i++){
+        var digit=string[i];
+        switch(digit){
+            case 'I':
+                if(string[i+1]==='V'){
+                  result=result+4;
+                  i++;
+                }else if (string[i+1]==='X') {
+                  result=result+9;
+                  i++;
+                }else {
+                result=result+1;
+              }
+                break;
+                case 'V':
+                  result=result+5
+                  break;
+                  case 'X':
+                  if(string[i+1]==='L'){
+                    result=result+40;
+                    i++;
+                  }else if (string[i+1]==='C') {
+                    result=result+90;
+                    i++;
+                  }else {
+                  result=result+10;
+                }
+                break;
+                case 'L':
+                result=result+50
+                break;
+                case 'C':
+                if(string[i+1]==='D'){
+                  result=result+400;
+                  i++;
+                }else if (string[i+1]==='M') {
+                  result=result+900;
+                  i++;
+                }else {
+                result=result+100;
+                }
+                break;
+                case 'D':
+                result=result+500
+                break;
+                case 'M':
+                result=result+1000
+                break;
+
+
+              }
+            }
+      return result;
+    }
+
+
+//2
+    function toCamelCase(string){
+      result= '';
+      for (var i = 0;i<string.length;i++){
+        if(string[i]===string[i].toUpperCase()||string[i-1]==='_'|| string[i-1]==='-')
+
+        result=result+string[i].toUpperCase();
+
+      }else {
+        result=result+string[i]
+      }
+      return result;
+    }
