@@ -10,3 +10,19 @@
 
 // input   =  "aaaaaaaaaaaa"
 // result  =  "123456789101112"
+function coutoccurences(string){
+  var array=[];
+  var result =[];
+  var count =0;
+  for(var i =0;i<string.length;i++){
+    array.push(string[i])
+    for(var j =0;j<array.length;j++){
+      if(array[j]===string[i]){
+      count++;
+    }
+  }
+  result.push(count)
+  count=0;
+}
+return result.join('');
+}
